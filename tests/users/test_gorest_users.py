@@ -4,6 +4,9 @@ from src.pydantic_schemas.user import User
 
 
 def test_get_users_list(get_users, calculate):
+    """
+    Verify that list of users is returned.
+    """
     Response(get_users).assert_status_code(200).validate_schema_pydantic(User)
     # --> fixture that returned function
     print(calculate)
@@ -27,3 +30,7 @@ def test_number(make_number):
 ])
 def test_calculation(first_value, second_value, result, calculate):
     assert calculate(first_value, second_value) == result
+
+
+def test_failed():
+    assert 1 == 2, "Failing message."
