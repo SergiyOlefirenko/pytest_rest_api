@@ -1,5 +1,11 @@
 import pytest
 from random import randrange
+from src.generators.player import Player
+
+
+@pytest.fixture
+def get_player_generator():
+    return Player()
 
 
 # this fixture will be accessible from both tests folders ('users' and 'something')
