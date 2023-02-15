@@ -1,14 +1,10 @@
 import requests
 import pytest
 from src.generators.player import PlayerLocalization
+from src.enums.user_enums import Statuses
 
 
-@pytest.mark.parametrize("status", [
-    "ACTIVE",
-    "BANNED",
-    "DELETED",
-    "INACTIVE"
-])
+@pytest.mark.parametrize("status", Statuses.list())
 def test_data_generation_status(status, get_player_generator):
     print(get_player_generator.set_status(status).build())
 
