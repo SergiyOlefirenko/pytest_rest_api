@@ -39,4 +39,5 @@ class Player():
         return self.result
 
 
-print(Player().build())
+if __name__ == '__main__':
+    print(Player().build())
