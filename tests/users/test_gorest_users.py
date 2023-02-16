@@ -2,12 +2,13 @@ import pytest
 from src.baseclasses.response import Response
 from src.pydantic_schemas.user import User
 
+pytestmark = pytest.mark.gorest
 
 def test_get_users_list(get_users, calculate):
     """
     Verify that list of users is returned.
     """
-    Response(get_users).assert_status_code(200).validate_schema_pydantic(User)
+    Response(get_users).assert_status_code(200).validate_schema_pydantic(User, 'data')
     # --> fixture that returned function
     print(calculate)
     print(calculate(1, 4))

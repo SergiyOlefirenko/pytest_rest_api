@@ -1,6 +1,8 @@
+import pytest
 from src.DAL.dvdrental.tables import Film, Language
 from datetime import datetime
 
+pytestmark = pytest.mark.db_test
 
 def test_get_films_data(get_db_session):
     data = get_db_session.query(Film).first()
