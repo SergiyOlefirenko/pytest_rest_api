@@ -1,10 +1,11 @@
 import requests
-
+import pytest
 from configuration import SERVICE_URL
 from src.baseclasses.response import Response
 from src.schemas.post import POST_SCHEMA
 from src.pydantic_schemas.post import Post
 
+pytestmark = pytest.mark.schemas
 
 def test_getting_posts_validate_with_jsonschema():
     r = requests.get(url=SERVICE_URL)
